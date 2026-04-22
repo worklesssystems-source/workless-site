@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gafino – Ristorante Italiano</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #E8D5A3;
+      --black: #0D0D0D;
+      --dark: #1A1A1A;
+      --dark2: #242424;
+      --white: #FFFFFF;
+      --gray: #888888;
+      --gray-light: #F5F5F5;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 5%;
+      background: rgba(13,13,13,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--gold);
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-btn {
+      background: var(--gold);
+      color: var(--black);
+      border: none;
+      padding: 0.6rem 1.4rem;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+    }
+
+    .nav-btn:hover { background: var(--gold-light); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: 0.3s;
+    }
+
+    /* ─── HERO ─── */
+    #hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0D0D0D 0%, #1a1208 50%, #0D0D0D 100%);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(201,168,76,0.05) 0%, transparent 60%);
+    }
+
+    .hero-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-divider span { color: var(--gold); font-size: 1.2rem; }
+    .hero-divider::before, .hero-divider::after {
+      content: '';
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-content { position: relative; z-index: 2; padding: 0 1rem; }
+
+    .hero-subtitle {
+      font-size: 0.85rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      letter-spacing: 3px;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--black);
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    .btn-outline {
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+    }
+
+    .btn-outline:hover { background: var(--gold); color: var(--black); transform: translateY(-2px); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gray);
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollAnim 2s infinite;
+    }
+
+    @keyframes scrollAnim {
+      0% { opacity: 1; transform: scaleY(1); }
+      100% { opacity: 0; transform: scaleY(0.3); }
+    }
+
+    /* ─── SECTIONS SHARED ─── */
+    section { padding: 6rem 5%; }
+
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .gold-line {
+      width: 50px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 2rem;
+    }
+
+    /* ─── DESPRE NOI ─── */
+    #despre {
+      background: var(--dark);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .despre-text p {
+      color: rgba(255,255,255,0.65);
+      line-height: 1.9;
+      font-weight: 300;
+      margin-bottom: 1.2rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .stat-item { border-left: 2px solid var(--gold); padding-left: 1.2rem; }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-top: 0.3rem;
+    }
+
+    .despre-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 200px 200px;
+      gap: 1rem;
+    }
+
+    .visual-box {
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      overflow: hidden;
+    }
+
+    .visual-box:nth-child(1) { background: #1c1408; grid-row: span 2; }
+    .visual-box:nth-child(2) { background: #1a1208; }
+    .visual-box:nth-child(3) { background: #201610; }
+
+    .visual-box .emoji { font-size: 4rem; }
+
+    /* ─── MENIU ─── */
+    #meniu { background: var(--black); }
+
+    .meniu-header { text-align: center; margin-bottom: 4rem; }
+    .meniu-header .gold-line { margin: 0 auto 2rem; }
+
+    .meniu-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: none;
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gray);
+      padding: 0.6rem 1.5rem;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--black);
+    }
+
+    .meniu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .meniu-card {
+      background: var(--dark2);
+      border: 1px solid rgba(201,168,76,0.1);
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .meniu-card:hover {
+      border-color: rgba(201,168,76,0.5);
+      transform: translateY(-4px);
+    }
+
+    .card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+
+    .card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-desc {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--gold);
+    }
+
+    .card-tag {
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.4);
+      padding: 0.3rem 0.7rem;
+    }
+
+    .menu-section { display: none; }
+    .menu-section.active { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+
+    /* ─── GALERIE ─── */
+    #galerie { background: var(--dark); }
+
+    .galerie-header { text-align: center; margin-bottom: 3rem; }
+    .galerie-header .gold-line { margin: 0 auto 2rem; }
+
+    .galerie-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 250px 250px;
+      gap: 1rem;
+    }
+
+    .galerie-item {
+      background: var(--dark2);
+      border: 1px solid rgba(201,168,76,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: border-color 0.3s;
+    }
+
+    .galerie-item:hover { border-color: rgba(201,168,76,0.5); }
+    .galerie-item:first-child { grid-row: span 2; font-size: 6rem; }
+
+    .galerie-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      padding: 1.5rem 1rem 0.8rem;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .galerie-item:hover .galerie-label { opacity: 1; }
+
+    /* ─── REZERVARE ─── */
+    #rezervare { background: var(--black); }
+
+    .rezervare-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .rezervare-inner .gold-line { margin: 0 auto 2rem; }
+
+    .rezervare-inner p {
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 3rem;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    .form-group.full { grid-column: span 2; }
+
+    .form-group label {
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--dark2);
+      border: 1px solid rgba(201,168,76,0.2);
+      color: var(--white);
+      padding: 0.85rem 1rem;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group select option { background: var(--dark2); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .form-submit {
+      margin-top: 1.5rem;
+      background: var(--gold);
+      color: var(--black);
+      border: none;
+      padding: 1rem 3rem;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      width: 100%;
+    }
+
+    .form-submit:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      background: var(--dark);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-info .gold-line { margin-bottom: 2rem; }
+
+    .contact-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.8rem;
+    }
+
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(201,168,76,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+
+    .contact-item-text h4 {
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-item-text p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .map-placeholder {
+      background: var(--dark2);
+      border: 1px solid rgba(201,168,76,0.15);
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+      color: var(--gray);
+    }
+
+    .map-placeholder span { font-size: 3rem; }
+    .map-placeholder p { font-size: 0.85rem; letter-spacing: 1px; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(201,168,76,0.15);
+      padding: 3rem 5%;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      letter-spacing: 2px;
+    }
+
+    .footer-copy {
+      text-align: center;
+      color: var(--gray);
+      font-size: 0.8rem;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+    }
+
+    .social-link {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(201,168,76,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .social-link:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 768px) {
+      .nav-links, .nav-btn { display: none; }
+      .hamburger { display: flex; }
+
+      #despre, #contact { grid-template-columns: 1fr; gap: 3rem; }
+
+      .despre-visual { display: none; }
+
+      .galerie-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 160px 160px 160px;
+      }
+      .galerie-item:first-child { grid-row: span 1; }
+
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: span 1; }
+
+      footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .footer-social { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-logo">GAFINO</div>
+    <ul class="nav-links">
+      <li><a href="#despre">Despre</a></li>
+      <li><a href="#meniu">Meniu</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#rezervare" class="nav-btn">Rezervă</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Meniu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-divider"><span>✦</span></div>
+      <p class="hero-subtitle">Ristorante Italiano · București</p>
+      <h1 class="hero-title">GAFINO</h1>
+      <p class="hero-desc">O experiență culinară autentică italiană în inima Bucureștiului. Rețete tradiționale, ingrediente selectate, atmosferă rafinată.</p>
+      <div class="hero-buttons">
+        <a href="#meniu" class="btn-primary">Descoperă Meniul</a>
+        <a href="#rezervare" class="btn-outline">Rezervă o Masă</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      scroll
+    </div>
+  </section>
+
+  <!-- DESPRE NOI -->
+  <section id="despre">
+    <div class="despre-text">
+      <p class="section-label">Povestea noastră</p>
+      <h2 class="section-title">O tradiție italiană<br/>din 2009</h2>
+      <div class="gold-line"></div>
+      <p>Gafino s-a născut dintr-o pasiune profundă pentru bucătăria italiană autentică. Fondatorul nostru, Marco Gafino, a adus cu el din Napoli rețete de familie transmise din generație în generație.</p>
+      <p>Fiecare preparat este gătit cu ingrediente importate direct din Italia — făina pentru pizza din Napoli, mozzarella di bufala proaspătă, trufe din Umbria — pentru a vă oferi o experiență culinară de neuitat.</p>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">Ani de tradiție</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">48</div>
+          <div class="stat-label">Preparate în meniu</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">4.9</div>
+          <div class="stat-label">Rating clienți</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">120</div>
+          <div class="stat-label">Locuri disponibile</div>
+        </div>
+      </div>
+    </div>
+    <div class="despre-visual">
+      <div class="visual-box"><span class="emoji">🍕</span></div>
+      <div class="visual-box"><span class="emoji">🍝</span></div>
+      <div class="visual-box"><span class="emoji">🥂</span></div>
+    </div>
+  </section>
+
+  <!-- MENIU -->
+  <section id="meniu">
+    <div class="meniu-header">
+      <p class="section-label">Specialitățile noastre</p>
+      <h2 class="section-title">Meniu Gafino</h2>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="meniu-tabs">
+      <button class="tab-btn active" onclick="showTab('pizza', this)">Pizza</button>
+      <button class="tab-btn" onclick="showTab('paste', this)">Paste</button>
+      <button class="tab-btn" onclick="showTab('deserturi', this)">Deserturi</button>
+    </div>
+
+    <div id="tab-pizza" class="menu-section active">
+      <div class="meniu-card">
+        <div class="card-icon">🍕</div>
+        <h3 class="card-name">Margherita Classica</h3>
+        <p class="card-desc">Sos de roșii San Marzano, mozzarella di bufala DOP, busuioc proaspăt, ulei de măsline extravirgin.</p>
+        <div class="card-footer">
+          <span class="card-price">38 lei</span>
+          <span class="card-tag">Clasic</span>
+        </div>
+      </div>
+      <div class="meniu-card">
+        <div class="card-icon">🍕</div>
+        <h3 class="card-name">Quattro Stagioni</h3>
+        <p class="card-desc">Șuncă crudă, anghinare, ciuperci porcini, măsline kalamata, sos de roșii, mozzarella.</p>
+        <div class="card-footer">
+          <span class="card-price">52 lei</span>
+          <span class="card-tag">Chef's pick</span>
+        </div>
+      </div>
+      <div class="meniu-card">
+        <div class="card-icon">🍕</div>
+        <h3 class="card-name">Tartufo Nero</h3>
+        <p class="card-desc">Cremă de trufe negre, mozzarella fior di latte, parmezan 24 luni, rucola sălbatică, ulei de trufe.</p>
+        <div class="card-footer">
+          <span class="card-price">75 lei</span>
+          <span class="card-tag">Premium</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-paste" class="menu-section">
+      <div class="meniu-card">
+        <div class="card-icon">🍝</div>
+        <h3 class="card-name">Spaghetti Carbonara</h3>
+        <p class="card-desc">Rețeta originală romană: guanciale, gălbenuș de ou, Pecorino Romano, piper negru proaspăt măcinat.</p>
+        <div class="card-footer">
+          <span class="card-price">45 lei</span>
+          <span class="card-tag">Clasic</span>
+        </div>
+      </div>
+      <div class="meniu-card">
+        <div class="card-icon">🍝</div>
+        <h3 class="card-name">Tagliatelle al Ragù</h3>
+        <p class="card-desc">Paste proaspete cu ragù de vițel gătit lent 6 ore, vin roșu Chianti, roșii cherry, parmezan.</p>
+        <div class="card-footer">
+          <span class="card-price">58 lei</span>
+          <span class="card-tag">Chef's pick</span>
+        </div>
+      </div>
+      <div class="meniu-card">
+        <div class="card-icon">🍝</div>
+        <h3 class="card-name">Risotto ai Funghi</h3>
+        <p class="card-desc">Risotto Carnaroli cu mix de ciuperci sălbatice, unt, parmezan, trufe albe și vin alb Pinot Grigio.</p>
+        <div class="card-footer">
+          <span class="card-price">62 lei</span>
+          <span class="card-tag">Premium</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-deserturi" class="menu-section">
+      <div class="meniu-card">
+        <div class="card-icon">🍮</div>
+        <h3 class="card-name">Tiramisù della Casa</h3>
+        <p class="card-desc">Rețeta originală a lui Marco: mascarpone, savoiardi, espresso ristretto, cacao Valrhona, Marsala.</p>
+        <div class="card-footer">
+          <span class="card-price">28 lei</span>
+          <span class="card-tag">Clasic</span>
+        </div>
+      </div>
+      <div class="meniu-card">
+        <div class="card-icon">🍨</div>
+        <h3 class="card-name">Panna Cotta al Pistacchio</h3>
+        <p class="card-desc">Panna cotta catifelată cu cremă de fistic sicilian, coulis de zmeură proaspătă și fistic caramelizat.</p>
+        <div class="card-footer">
+          <span class="card-price">32 lei</span>
+          <span class="card-tag">Chef's pick</span>
+        </div>
+      </div>
+      <div class="meniu-card">
+        <div class="card-icon">🍫</div>
+        <h3 class="card-name">Fondant Cioccolato</h3>
+        <p class="card-desc">Tortuleț cu inimă de ciocolată Valrhona 70%, servit cu înghețată de vanilie bourbon și fructe de pădure.</p>
+        <div class="card-footer">
+          <span class="card-price">35 lei</span>
+          <span class="card-tag">Premium</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section id="galerie">
+    <div class="galerie-header">
+      <p class="section-label">Atmosfera noastră</p>
+      <h2 class="section-title">Galerie</h2>
+      <div class="gold-line"></div>
+    </div>
+    <div class="galerie-grid">
+      <div class="galerie-item">
+        🍕
+        <div class="galerie-label">Pizza Tartufo</div>
+      </div>
+      <div class="galerie-item">
+        🍝
+        <div class="galerie-label">Paste proaspete</div>
+      </div>
+      <div class="galerie-item">
+        🥂
+        <div class="galerie-label">Selecție vinuri</div>
+      </div>
+      <div class="galerie-item">
+        🕯️
+        <div class="galerie-label">Terasă</div>
+      </div>
+      <div class="galerie-item">
+        🍮
+        <div class="galerie-label">Tiramisù</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REZERVARE -->
+  <section id="rezervare">
+    <div class="rezervare-inner">
+      <p class="section-label">Vino la noi</p>
+      <h2 class="section-title">Rezervă o Masă</h2>
+      <div class="gold-line"></div>
+      <p>Rezervați masa dvs. în avans și bucurați-vă de o experiență culinară autentică. Suntem disponibili zilnic între 12:00 și 23:00.</p>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nume complet</label>
+          <input type="text" placeholder="Ex: Ion Popescu" />
+        </div>
+        <div class="form-group">
+          <label>Telefon</label>
+          <input type="tel" placeholder="07xx xxx xxx" />
+        </div>
+        <div class="form-group">
+          <label>Data</label>
+          <input type="date" />
+        </div>
+        <div class="form-group">
+          <label>Ora</label>
+          <select>
+            <option value="">Selectați ora</option>
+            <option>12:00</option><option>12:30</option>
+            <option>13:00</option><option>13:30</option>
+            <option>14:00</option><option>19:00</option>
+            <option>19:30</option><option>20:00</option>
+            <option>20:30</option><option>21:00</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Număr persoane</label>
+          <select>
+            <option>1 persoană</option>
+            <option>2 persoane</option>
+            <option>3 persoane</option>
+            <option>4 persoane</option>
+            <option>5+ persoane</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="email@exemplu.ro" />
+        </div>
+        <div class="form-group full">
+          <label>Mențiuni speciale</label>
+          <textarea placeholder="Alergii, ocazie specială, preferințe..."></textarea>
+        </div>
+      </div>
+      <button class="form-submit" onclick="handleRezervare()">Trimite Rezervarea</button>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-info">
+      <p class="section-label">Găsește-ne</p>
+      <h2 class="section-title">Contact &<br/>Locație</h2>
+      <div class="gold-line"></div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div class="contact-item-text">
+          <h4>Adresă</h4>
+          <p>Strada Florilor nr. 12<br/>Sector 1, București</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div class="contact-item-text">
+          <h4>Telefon</h4>
+          <p>+40 721 456 789</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉</div>
+        <div class="contact-item-text">
+          <h4>Email</h4>
+          <p>rezervari@gafino.ro</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <div class="contact-item-text">
+          <h4>Program</h4>
+          <p>Luni – Vineri: 12:00 – 23:00<br/>Sâmbătă – Duminică: 11:00 – 00:00</p>
+        </div>
+      </div>
+    </div>
+    <div class="map-placeholder">
+      <span>🗺️</span>
+      <p>Strada Florilor nr. 12, București</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">GAFINO</div>
+    <p class="footer-copy">© 2025 Gafino Ristorante. Toate drepturile rezervate.</p>
+    <div class="footer-social">
+      <a href="#" class="social-link" aria-label="Facebook">f</a>
+      <a href="#" class="social-link" aria-label="Instagram">ig</a>
+      <a href="#" class="social-link" aria-label="TripAdvisor">ta</a>
+    </div>
+  </footer>
+
+  <script>
+    function showTab(name, btn) {
+      document.querySelectorAll('.menu-section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + name).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    function handleRezervare() {
+      alert('Mulțumim pentru rezervare! Vă vom contacta în scurt timp pentru confirmare.');
+    }
+
+    function toggleMenu() {
+      const links = document.querySelector('.nav-links');
+      const navBtn = document.querySelector('.nav-btn');
+      if (links) {
+        const vis = links.style.display === 'flex';
+        links.style.display = vis ? 'none' : 'flex';
+        links.style.flexDirection = 'column';
+        links.style.position = 'absolute';
+        links.style.top = '70px';
+        links.style.left = '0';
+        links.style.right = '0';
+        links.style.background = '#0D0D0D';
+        links.style.padding = '1rem 5%';
+        links.style.gap = '1.5rem';
+      }
+    }
+
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.background = window.scrollY > 50 ? 'rgba(13,13,13,0.98)' : 'rgba(13,13,13,0.92)';
+    });
+  </script>
+</body>
+</html>
