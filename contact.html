@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>Demo Gratuit 30 Minute — Rezervă Acum | Workless Systems</title>
-<meta name="description" content="Rezervă un demo gratuit de 30 de minute cu Vlad. Îți arăt exact cum ar arăta un sistem AI în business-ul tău — fără obligații, sistem live în 7 zile de la decizie."/>
+<meta name="description" content="Rezervă un demo gratuit de 30 min cu Vlad — îți arăt exact cum ar arăta automatizarea AI în afacerea ta. Fără obligații."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://workless.ro/contact.html"/>
 <link rel="alternate" hreflang="ro" href="https://workless.ro/contact.html"/>
@@ -157,6 +157,40 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
   .cursor,.cursor-ring{display:none;}
 }
 </style>
+
+<!-- Cookie Consent + GA4 -->
+<style>#wl-cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9000;background:#111;border-top:1px solid rgba(255,255,255,0.08);padding:1rem 5%;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-family:'Inter',sans-serif;}#wl-cookie-banner p{color:#999;font-size:0.78rem;margin:0;line-height:1.6;}#wl-cookie-banner a{color:#F26522;text-decoration:underline;}.wl-cookie-btns{display:flex;gap:0.6rem;flex-shrink:0;}.wl-cookie-btns button{padding:0.5rem 1.2rem;border-radius:6px;font-size:0.78rem;font-weight:600;cursor:pointer;border:none;font-family:'Inter',sans-serif;}#wl-accept-btn{background:#F26522;color:#fff;}#wl-accept-btn:hover{background:#D4561A;}#wl-reject-btn{background:transparent;color:#999;border:1px solid rgba(255,255,255,0.12);}@media(max-width:600px){#wl-cookie-banner{flex-direction:column;text-align:center;}.wl-cookie-btns{width:100%;justify-content:center;}}</style>
+<div id="wl-cookie-banner" style="display:none;"><p>Folosim cookies pentru Google Analytics. Detalii în <a href="/politica-de-confidentialitate.html">Politică de confidenţialitate</a>.</p><div class="wl-cookie-btns"><button id="wl-accept-btn" onclick="window.__wl_acceptCookies()">Acceptă</button><button id="wl-reject-btn" onclick="window.__wl_rejectCookies()">Refuză</button></div></div>
+<script>(function(){
+  var K='wl_cookie_consent';
+  var GID='G-7G31JFYMFK';
+  function loadGA4(){
+    if(window.__ga4l)return; window.__ga4l=true;
+    var s=document.createElement("script");
+    s.async=true;
+    s.src="https://www.googletagmanager.com/gtag/js?id="+GID;
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    window.gtag=function(){dataLayer.push(arguments);};
+    gtag('js',new Date());
+    gtag('config',GID,{anonymize_ip:true});
+  }
+  window.__wl_acceptCookies=function(){
+    localStorage.setItem(K,"accepted");
+    document.getElementById("wl-cookie-banner").style.display="none";
+    loadGA4();
+  };
+  window.__wl_rejectCookies=function(){
+    localStorage.setItem(K,"rejected");
+    document.getElementById("wl-cookie-banner").style.display="none";
+  };
+  document.addEventListener("DOMContentLoaded",function(){
+    var c=localStorage.getItem(K);
+    if(c==="accepted"){loadGA4();}
+    else if(!c){document.getElementById("wl-cookie-banner").style.display="flex";}
+  });
+})();</script>
+
 </head>
 
 <body>
