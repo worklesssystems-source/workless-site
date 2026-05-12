@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Despre Vlad & Workless Systems | Automatizări AI România</title>
+<meta name="description" content="Vlad Alec, fondatorul Workless Systems — fost inginer naval, acum specialist în automatizări AI pentru afaceri din România. Află povestea și cum putem colabora."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://workless.ro/despre.html"/>
+<link rel="alternate" hreflang="ro" href="https://workless.ro/despre.html"/>
+<link rel="alternate" hreflang="x-default" href="https://workless.ro/despre.html"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Vlad Alec",
+  "jobTitle": "Fondator & AI Automation Specialist",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Workless Systems",
+    "url": "https://workless.ro"
+  },
+  "url": "https://workless.ro/despre.html",
+  "sameAs": [
+    "https://www.instagram.com/workless.systems",
+    "https://www.tiktok.com/@workless.systems",
+    "https://www.youtube.com/@WorklessSystems"
+  ]
+}
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --o:#F26522;--od:#D4561A;--og:rgba(242,101,34,0.12);
+  --black:#000;--d1:#0A0A0A;--d2:#111;--d3:#1A1A1A;
+  --white:#FFF;--gray:#555;--gl:#999;--br:rgba(255,255,255,0.06);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 5%;background:rgba(0,0,0,0.8);backdrop-filter:blur(24px);border-bottom:1px solid var(--br);transition:all 0.3s;}
+.nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;}
+.nav-logo img{height:34px;width:auto;filter:drop-shadow(0 0 10px rgba(242,101,34,0.5));}
+.logo-txt{font-size:0.85rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--white);}
+.logo-txt span{color:var(--o);}
+.nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none;}
+.nav-links a{color:var(--gl);text-decoration:none;font-size:0.8rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--white);}
+.nav-cta{background:var(--o);color:var(--white)!important;padding:0.55rem 1.3rem;border-radius:6px;font-weight:600!important;font-size:0.8rem!important;transition:all 0.2s;text-decoration:none;}
+.nav-cta:hover{background:var(--od);box-shadow:0 4px 20px rgba(242,101,34,0.4);}
+@media(max-width:900px){.nav-links{display:none;}}
+
+/* HERO */
+.despre-hero{padding:10rem 5% 6rem;text-align:center;position:relative;}
+.despre-hero::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(242,101,34,0.06) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
+.chip{display:inline-block;font-size:0.68rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gray);border:1px solid var(--br);padding:0.3rem 0.9rem;border-radius:100px;margin-bottom:1.5rem;}
+.despre-hero h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;letter-spacing:-1.5px;line-height:1.05;margin-bottom:1.5rem;}
+.despre-hero h1 span{color:var(--o);}
+
+/* QUOTE */
+.quote-section{padding:4rem 5%;background:#080808;}
+.quote-inner{max-width:700px;margin:0 auto;text-align:center;}
+.quote-text{font-size:clamp(1.1rem,2vw,1.4rem);line-height:1.9;font-weight:300;color:var(--gl);font-style:italic;position:relative;padding:0 2.5rem;}
+.quote-text::before,.quote-text::after{content:'\201C';font-size:5rem;color:rgba(242,101,34,0.2);font-family:Georgia,serif;position:absolute;line-height:1;}
+.quote-text::before{top:-1rem;left:0;}
+.quote-text::after{content:'\201D';bottom:-2.5rem;right:0;}
+.quote-text strong{color:var(--white);font-weight:600;font-style:normal;}
+.quote-author{margin-top:2.5rem;}
+.quote-name{font-size:0.88rem;font-weight:700;color:var(--o);letter-spacing:1px;}
+.quote-role{font-size:0.78rem;color:var(--gray);margin-top:0.2rem;}
+
+/* SECTIONS */
+.section{padding:6rem 5%;}
+.section-inner{max-width:800px;margin:0 auto;}
+.section h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;letter-spacing:-1px;margin-bottom:1rem;}
+.section h2 span{color:var(--o);}
+.section p{color:var(--gl);font-size:0.95rem;line-height:1.85;font-weight:300;margin-bottom:1rem;}
+.section p strong{color:var(--white);font-weight:600;}
+
+/* STEPS */
+.steps{display:flex;flex-direction:column;gap:1.5rem;margin-top:2.5rem;}
+.step{display:flex;align-items:flex-start;gap:1.5rem;background:var(--d2);border:1px solid var(--br);border-radius:16px;padding:1.8rem;}
+.step-num{font-size:2rem;font-weight:900;color:var(--o);letter-spacing:-2px;line-height:1;flex-shrink:0;opacity:0.85;}
+.step-content h3{font-size:0.95rem;font-weight:700;margin-bottom:0.3rem;}
+.step-content p{color:var(--gl);font-size:0.85rem;line-height:1.6;margin:0;}
+
+/* CTA */
+.cta-section{padding:7rem 5%;background:#050505;text-align:center;position:relative;overflow:hidden;}
+.cta-section::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(242,101,34,0.06) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
+.cta-label{font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--o);margin-bottom:1rem;}
+.cta-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;letter-spacing:-1.5px;line-height:1.1;margin-bottom:0.8rem;position:relative;z-index:2;}
+.cta-title span{color:var(--o);}
+.cta-sub{color:var(--gl);font-size:0.92rem;font-weight:300;line-height:1.8;max-width:460px;margin:0 auto 2.5rem;position:relative;z-index:2;}
+.mag-btn{display:inline-flex;align-items:center;gap:0.6rem;background:var(--o);color:var(--white);padding:1rem 2.2rem;border-radius:8px;text-decoration:none;font-size:0.95rem;font-weight:700;transition:all 0.3s;position:relative;z-index:2;}
+.mag-btn:hover{background:var(--od);box-shadow:0 10px 40px rgba(242,101,34,0.5);transform:translateY(-3px);}
+.cta-note{font-size:0.72rem;color:var(--gray);margin-top:1rem;position:relative;z-index:2;}
+
+footer{background:var(--black);border-top:1px solid var(--br);padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.fl-logo{display:flex;align-items:center;gap:0.6rem;}
+.fl-logo img{height:26px;width:auto;}
+.fl-txt{font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+.fc{font-size:0.7rem;color:var(--gray);}
+.fc a{color:var(--gray);text-decoration:underline;}
+.fsocial{display:flex;gap:0.8rem;}
+.fsoc{width:34px;height:34px;border:1px solid var(--br);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--gray);text-decoration:none;font-size:0.75rem;font-weight:600;transition:all 0.2s;}
+.fsoc:hover{border-color:var(--o);color:var(--o);}
+@media(max-width:600px){footer{flex-direction:column;text-align:center;}.fsocial{justify-content:center;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.jpg" alt="Logo Workless Systems" height="34" loading="eager"/>
+    <div class="logo-txt">WORKLESS <span>SYSTEMS</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Acasă</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+  </ul>
+  <a href="/contact.html" class="nav-cta">Demo Gratuit →</a>
+</nav>
+
+<!-- HERO -->
+<section class="despre-hero">
+  <div class="chip">Despre Workless Systems</div>
+  <h1>De ce am construit <span>asta</span></h1>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section">
+  <div class="quote-inner">
+    <div class="quote-text">
+      Am văzut <strong>cât timp pierd afacerile mici și medii pe mesaje și taskuri repetitive.</strong> Eu însumi veneam dintr-un drum sigur dar plafonat — inginer naval — și am ales să creez soluții AI care să dea timp înapoi oamenilor.
+    </div>
+    <div class="quote-author">
+      <div class="quote-name">— Vlad Alec</div>
+      <div class="quote-role">Fondator & AI Automation Specialist · Workless Systems</div>
+    </div>
+  </div>
+</section>
+
+<!-- CE FACEM -->
+<section class="section" style="background:#050505;">
+  <div class="section-inner">
+    <h2>Nu vindem tehnologie.<br/><span>Îți cumpărăm înapoi timpul.</span></h2>
+    <p>Workless Systems construiește sisteme automate care lucrează pentru afacerea ta <strong>24/7</strong> — chatbot AI, voicebot, calificare leaduri automată, automatizare WhatsApp.</p>
+    <p>Cu cât afacerea e mai mică, cu atât ai mai mult de câștigat. Recuperezi ore și clienți pe care acum îi pierzi din lipsă de timp.</p>
+  </div>
+</section>
+
+<!-- CUM LUCRAM -->
+<section class="section" style="background:#080808;">
+  <div class="section-inner">
+    <h2>Cum <span>lucrăm</span></h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h3>Demo gratuit — 30 de minute</h3>
+          <p>Vedem exact ce ai nevoie. Fără obligații, fără tehnic.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h3>Implementare completă în 7 zile</h3>
+          <p>Tu nu faci nimic tehnic. Vlad implementează totul pas cu pas.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h3>Sistemul e live din prima zi</h3>
+          <p>Nu e ceva ce crește în timp — funcționează imediat de la lansare.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-label">Gata să începem?</div>
+  <h2 class="cta-title">30 de minute.<br/><span>Atât îți ia să vezi dacă merită.</span></h2>
+  <p class="cta-sub">Demo gratuit, fără obligații. În 7 zile sistemul e live și lucrează pentru tine.</p>
+  <a href="/contact.html" class="mag-btn">Rezervă demo gratuit →</a>
+  <p class="cta-note">Gratuit. Fără obligații. Fără spam.</p>
+</section>
+
+<footer>
+  <div class="fl-logo">
+    <img src="/images/logo.jpg" alt="Logo Workless Systems" height="26" loading="lazy"/>
+    <div class="fl-txt">Workless Systems</div>
+  </div>
+  <p class="fc">© 2026 Workless Systems. Toate drepturile rezervate. · <a href="/politica-de-confidentialitate.html">Politică de confidențialitate</a></p>
+  <div class="fsocial">
+    <a href="https://www.instagram.com/workless.systems" class="fsoc" target="_blank" rel="noopener">IG</a>
+    <a href="https://www.tiktok.com/@workless.systems" class="fsoc" target="_blank" rel="noopener">TT</a>
+    <a href="https://www.youtube.com/@WorklessSystems" class="fsoc" target="_blank" rel="noopener">YT</a>
+  </div>
+</footer>
+
+</body>
+</html>
