@@ -344,5 +344,12 @@ function submitForm(){
 function closeModal(){document.getElementById('modal').classList.remove('active');}
 document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
 </script>
+
+<!-- Vercel Speed Insights -->
+<script type="module">
+  import { injectSpeedInsights } from '/_vercel/speed-insights/script.js';
+  injectSpeedInsights();
+</script>
+
 </body>
 </html>
