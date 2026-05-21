@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ro">
 <!-- ============================================================
      REPLACE EVERYTHING BETWEEN <head> AND </head> IN index.html
@@ -20,7 +20,7 @@
 <meta property="og:title" content="Automatizări AI pentru Afaceri | Workless Systems"/>
 <meta property="og:description" content="Sisteme automate care răspund clienților tăi 24/7, califică leaduri și îți salvează ore zilnic. Demo gratuit de 30 de minute."/>
 <meta property="og:url" content="https://workless.ro/"/>
-<meta property="og:image" content="https://workless.ro/og-image.jpg"/>
+<meta property="og:image" content="https://workless.ro/og-image.webp"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
 <meta property="og:image:alt" content="Workless Systems — Automatizări AI pentru afaceri din România"/>
@@ -34,13 +34,16 @@
 <meta name="twitter:image:alt" content="Workless Systems — Automatizări AI"/>
 
 <!-- ── Favicon ── -->
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png"/>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+<link rel="manifest" href="site.webmanifest"/>
+<meta name="theme-color" content="#000000"/>
 
 <!-- ── Fonts (preconnect first, then load) ── -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 
 <!-- ── Structured Data (JSON-LD) ── -->
@@ -62,6 +65,11 @@
       "name": "Workless Systems",
       "url": "https://workless.ro/",
       "description": "Automatizări AI care îți salvează timp și clienți — sisteme care răspund instant 24/7, califică leaduri automat și îți dau ore înapoi.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Galați",
+        "addressCountry": "RO"
+      },
       "areaServed": {
         "@type": "Country",
         "name": "Romania"
@@ -86,6 +94,15 @@
         "https://www.youtube.com/@WorklessSystems",
         "https://www.facebook.com/profile.php?id=61580864584012"
       ]
+    },
+    {
+      "@type": "VideoObject",
+      "name": "Afacerea ta depinde de tine?",
+      "description": "Vlad de la Workless Systems explică cum automatizările AI îți salvează timp și clienți.",
+      "thumbnailUrl": "https://img.youtube.com/vi/rJw7sEkdxYk/maxresdefault.jpg",
+      "uploadDate": "2026-01-01",
+      "embedUrl": "https://www.youtube.com/embed/rJw7sEkdxYk",
+      "url": "https://www.youtube.com/watch?v=rJw7sEkdxYk"
     },
     {
       "@type": "FAQPage",
@@ -135,7 +152,8 @@
   --black:#000;--d1:#0A0A0A;--d2:#111;--d3:#1A1A1A;
   --white:#FFF;--gray:#555;--gl:#999;--br:rgba(255,255,255,0.06);
 }
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;scroll-padding-top:75px;}
+:focus-visible{outline:2px solid var(--o);outline-offset:3px;border-radius:4px;}
 body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;cursor:none;}
 
 
@@ -176,7 +194,7 @@ nav.scrolled{background:rgba(0,0,0,0.97);border-bottom-color:rgba(242,101,34,0.1
 .d4{transition-delay:0.4s;}.d5{transition-delay:0.5s;}.d6{transition-delay:0.6s;}
 
 /* HERO */
-#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 5% 6rem;position:relative;overflow:hidden;}
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:center;padding:8rem 5% 6rem;position:relative;overflow:hidden;text-align:left;}
 .hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(242,101,34,0.07) 0%,transparent 70%);top:50%;left:30%;transform:translate(-50%,-50%);pointer-events:none;animation:hglow 6s ease-in-out infinite alternate;}
 @keyframes hglow{0%{opacity:0.5;transform:translate(-50%,-50%) scale(0.9);}100%{opacity:1;transform:translate(-50%,-50%) scale(1.15);}}
 
@@ -190,10 +208,10 @@ nav.scrolled{background:rgba(0,0,0,0.97);border-bottom-color:rgba(242,101,34,0.1
 .hero-title .ol{color:var(--o);}
 .glitch{position:relative;display:inline-block;}
 
-.hero-sub{font-size:1rem;color:var(--gl);line-height:1.8;font-weight:300;margin-bottom:2rem;max-width:560px;margin-left:auto;margin-right:auto;}
+.hero-sub{font-size:1rem;color:var(--gl);line-height:1.8;font-weight:300;margin-bottom:2rem;max-width:560px;}
 .hero-sub strong{color:var(--white);font-weight:600;}
 
-.hero-note{font-size:0.75rem;color:var(--gray);margin-top:0.8rem;display:flex;align-items:center;justify-content:center;gap:0.4rem;}
+.hero-note{font-size:0.75rem;color:var(--gray);margin-top:0.8rem;display:flex;align-items:center;justify-content:flex-start;gap:0.4rem;}
 .hero-note::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--o);flex-shrink:0;animation:bdota 2s infinite;}
 
 /* MAGNETIC BTN */
@@ -216,9 +234,12 @@ nav.scrolled{background:rgba(0,0,0,0.97);border-bottom-color:rgba(242,101,34,0.1
 
 
 
-50%{transform:translateY(-8px);}}
-
-
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:0.3rem;z-index:101;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:all 0.3s;}
+.hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
 /* BEFORE/AFTER */
 #ba{padding:7rem 5%;background:#080808;}
@@ -314,6 +335,17 @@ footer{background:var(--black);border-top:1px solid var(--br);padding:2rem 5%;di
 .fsoc{width:34px;height:34px;border:1px solid var(--br);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--gray);text-decoration:none;font-size:0.75rem;font-weight:600;transition:all 0.2s;cursor:none;}
 .fsoc:hover{border-color:var(--o);color:var(--o);}
 
+/* TOOLS */
+.tool-marquee{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#fff 8%,#fff 92%,transparent);mask:linear-gradient(90deg,transparent,#fff 8%,#fff 92%,transparent);}
+.tool-track{display:flex;gap:3.5rem;width:max-content;animation:marquee 30s linear infinite;}
+.tool-marquee:hover .tool-track{animation-play-state:paused;}
+@keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.tool-badge{display:inline-flex;align-items:center;justify-content:center;gap:0.55rem;padding:0.4rem 1.1rem;white-space:nowrap;cursor:default;}
+.tool-badge svg{opacity:0.5;flex-shrink:0;transition:opacity 0.3s;}
+
+.tool-badge:hover svg{opacity:1;}
+.badge-label{font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.45);letter-spacing:0.3px;transition:color 0.3s;}.tool-badge:hover .badge-label{color:var(--white);}
+
 /* SECTION SHARED */
 section{position:relative;z-index:1;}
 .sc{text-align:center;}
@@ -323,16 +355,18 @@ section{position:relative;z-index:1;}
 .ss{color:var(--gl);font-size:0.92rem;font-weight:300;line-height:1.8;max-width:540px;margin:0 auto;}
 
 @media(max-width:900px){
-  #hero{grid-template-columns:1fr;text-align:center;gap:3rem;}
-  .hero-right{order:-1;}
+  #hero{grid-template-columns:1fr;text-align:center;gap:3rem;justify-items:center;}
   .photo-wrap{width:260px;height:463px;}
   .b-grid{grid-template-columns:1fr!important;}
+  .testi-grid{grid-template-columns:1fr!important;}
   .viitor-grid{grid-template-columns:1fr!important;}
   
   
   .hero-sub{margin:0 auto 2rem;}
   .hero-note{justify-content:center;}
-  .nav-links{display:none;}
+  .nav-links{display:none;position:fixed;top:61px;left:0;right:0;background:#000;border-bottom:1px solid var(--br);flex-direction:column;padding:1.5rem 5%;gap:1.5rem;z-index:99;}
+  .nav-links.open{display:flex;}
+  .hamburger{display:flex;}
   .ba-grid{grid-template-columns:1fr;}
   .ba-vs{display:none;}
   footer{flex-direction:column;text-align:center;}
@@ -344,7 +378,7 @@ section{position:relative;z-index:1;}
 
 <!-- Cookie Consent + GA4 -->
 <style>#wl-cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9000;background:#111;border-top:1px solid rgba(255,255,255,0.08);padding:1rem 5%;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-family:'Inter',sans-serif;}#wl-cookie-banner p{color:#999;font-size:0.78rem;margin:0;line-height:1.6;}#wl-cookie-banner a{color:#F26522;text-decoration:underline;}.wl-cookie-btns{display:flex;gap:0.6rem;flex-shrink:0;}.wl-cookie-btns button{padding:0.5rem 1.2rem;border-radius:6px;font-size:0.78rem;font-weight:600;cursor:pointer;border:none;font-family:'Inter',sans-serif;}#wl-accept-btn{background:#F26522;color:#fff;}#wl-accept-btn:hover{background:#D4561A;}#wl-reject-btn{background:transparent;color:#999;border:1px solid rgba(255,255,255,0.12);}@media(max-width:600px){#wl-cookie-banner{flex-direction:column;text-align:center;}.wl-cookie-btns{width:100%;justify-content:center;}}</style>
-<div id="wl-cookie-banner" style="display:none;"><p>Folosim cookies pentru Google Analytics şi YouTube. Detalii în <a href="/politica-de-confidentialitate.html">Politică de confidenţialitate</a>.</p><div class="wl-cookie-btns"><button id="wl-accept-btn" onclick="window.__wl_acceptCookies()">Acceptă</button><button id="wl-reject-btn" onclick="window.__wl_rejectCookies()">Refuză</button></div></div>
+<div id="wl-cookie-banner" style="display:none;"><p>Folosim cookies pentru Google Analytics şi YouTube. Detalii în <a href="politica-de-confidentialitate.html">Politică de confidenţialitate</a>.</p><div class="wl-cookie-btns"><button id="wl-accept-btn" onclick="window.__wl_acceptCookies()">Acceptă</button><button id="wl-reject-btn" onclick="window.__wl_rejectCookies()">Refuză</button></div></div>
 <script>(function(){
   var K='wl_cookie_consent';
   var GID='G-7G31JFYMFK';
@@ -381,6 +415,11 @@ section{position:relative;z-index:1;}
   });
 })();</script>
 
+<!-- Meta Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1856492415027756');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1856492415027756&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel -->
+
 </head>
 
 <body>
@@ -390,16 +429,18 @@ section{position:relative;z-index:1;}
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="/" class="nav-logo">
-    <img src="/images/logo.webp" alt="Logo Workless Systems" height="34" loading="eager">
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.webp" alt="Logo Workless Systems" height="34" loading="eager">
     <div class="logo-txt" style="color:#fff;">WORKLESS <span style="color:var(--o);">SYSTEMS</span></div>
   </a>
   <ul class="nav-links">
-    <li><a href="/despre.html">Despre</a></li>
-    <li><a href="#ba">Înainte/După</a></li>
+    <li><a href="#vsl">Cum funcționează</a></li>
+    <li><a href="#ba">Rezultate</a></li>
+    <li><a href="#proces">Proces</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
   <a href="contact.html" class="nav-cta">Demo Gratuit →</a>
+  <button class="hamburger" id="hamburger" aria-label="Meniu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- HERO -->
@@ -418,28 +459,95 @@ section{position:relative;z-index:1;}
     <p class="hero-sub fu d2">
       Îți transform haosul zilnic în sisteme automate care muncesc pentru tine <strong>24/7</strong> — ca tu să te ocupi de creștere, nu de operațional.
     </p>
-    <div class="fu d3">
-      <a href="contact.html" class="mag-btn">
-        Rezervă un demo gratuit <span class="btn-arrow">→</span>
-      </a>
-      <p class="hero-note">E gratuit. Fără obligații. 30 de minute.</p>
-    </div>
   </div>
-
-</section>
 
   <div class="hero-right fu d2">
     <div class="photo-wrap">
       <div class="photo-glow"></div>
       <div class="photo-frame">
-        <div id="yt-placeholder" style="width:100%;height:100%;background:#111;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;cursor:pointer;" onclick="window.__wl_acceptCookies()"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="24" fill="rgba(242,101,34,0.15)"/><polygon points="20,16 36,24 20,32" fill="#F26522"/></svg><p style="color:#999;font-size:0.78rem;text-align:center;max-width:200px;margin:0;">Acceptă cookies pentru a vedea videoclipul</p></div><iframe id="yt-iframe" data-src="https://www.youtube.com/embed/rJw7sEkdxYk?autoplay=1&mute=1&rel=0&modestbranding=1" style="width:100%;height:100%;border:none;display:none;" allowfullscreen allow="autoplay; muted"></iframe>
+        <img src="images/WhatsApp Image 2026-05-21 at 12.27.09.jpeg" alt="Workless Systems — rezultate reale" style="width:100%;height:100%;object-fit:cover;border-radius:20px;display:block;"/>
       </div>
-        
-      </div>
-        
-      </div>
+      <div class="photo-tag">Bună, eu sunt <span>Vlad</span></div>
     </div>
   </div>
+
+</section>
+
+<!-- VSL -->
+<section id="vsl" style="padding:5rem 5%;background:#050505;text-align:center;">
+  <div class="sc fu" style="margin-bottom:2rem;">
+    <div class="chip">Vezi cum funcționează</div>
+    <h2 class="st">▶ <span class="ol">Afacerea ta depinde de tine?</span></h2>
+    <p class="ss" style="margin-top:0.5rem;">3 minute care îți arată exact ce pierzi și cum arată soluția.</p>
+  </div>
+  <div class="fu d1" style="max-width:700px;margin:0 auto;position:relative;">
+    <div style="position:relative;padding-bottom:56.25%;height:0;border-radius:16px;overflow:hidden;border:1px solid rgba(242,101,34,0.2);box-shadow:0 0 40px rgba(242,101,34,0.08);">
+      <div id="yt-placeholder" style="position:absolute;inset:0;cursor:pointer;overflow:hidden;border-radius:16px;" onclick="window.__wl_acceptCookies()">
+        <img src="https://img.youtube.com/vi/rJw7sEkdxYk/maxresdefault.jpg" alt="Afacerea ta depinde de tine? — Workless Systems" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <div style="position:absolute;inset:0;background:rgba(0,0,0,0.35);display:flex;align-items:center;justify-content:center;">
+          <div style="width:72px;height:72px;background:rgba(242,101,34,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(242,101,34,0.5);transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><polygon points="6,4 20,12 6,20"/></svg>
+          </div>
+        </div>
+      </div>
+      <iframe id="yt-iframe" data-src="https://www.youtube.com/embed/rJw7sEkdxYk?rel=0&modestbranding=1" style="position:absolute;inset:0;width:100%;height:100%;border:none;display:none;" allowfullscreen allow="autoplay"></iframe>
+    </div>
+  </div>
+  <div style="margin-top:2.5rem;">
+    <a href="contact.html" class="mag-btn">
+      Rezervă un demo gratuit <span class="btn-arrow">→</span>
+    </a>
+    <p class="hero-note" style="margin-top:0.75rem;justify-content:center;">E gratuit. Fără obligații. 30 de minute.</p>
+  </div>
+</section>
+
+<!-- DESPRE / VLAD -->
+<section id="despre" style="padding:7rem 5%;background:#050505;">
+  <div class="vlad-inner fu">
+    <div class="chip">Despre Workless Systems</div>
+    <div class="vlad-quote">
+      Am văzut <strong>cât timp pierd afacerile mici și medii pe mesaje și taskuri repetitive.</strong> Eu însumi veneam dintr-un drum sigur dar plafonat — inginer naval — și am ales să creez soluții AI care să dea timp înapoi oamenilor.
+    </div>
+    <div class="vlad-name">— Vlad Alecsiev</div>
+    <div class="vlad-role">Fondator Workless Systems · AI Automation Specialist</div>
+  </div>
+  <div style="margin-top:4rem;">
+    <p style="text-align:center;font-size:0.68rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:2.5rem;">Tehnologii pe care le folosim</p>
+    <div class="tool-marquee">
+    <div class="tool-track">
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M13.38 3.498c-.27 0-.511.19-.566.465L9.85 18.986a.578.578 0 0 0 .453.678l4.095.826a.58.58 0 0 0 .682-.455l2.963-15.021a.578.578 0 0 0-.453-.678l-4.096-.826a.589.589 0 0 0-.113-.012zm-5.876.098a.576.576 0 0 0-.516.318L.062 17.697a.575.575 0 0 0 .256.774l3.733 1.877a.578.578 0 0 0 .775-.258l6.926-13.781a.577.577 0 0 0-.256-.776L7.762 3.658a.571.571 0 0 0-.258-.062zm11.74.115a.576.576 0 0 0-.576.576v15.426c0 .318.258.578.576.578h4.178a.58.58 0 0 0 .578-.578V4.287a.578.578 0 0 0-.578-.576Z"/></svg></div>
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg></div>
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.032.067L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.843-3.371 2.019-1.168a.075.075 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.4-.679zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z"/></svg></div>
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></svg></div>
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M4.6035 0v24h4.9317V0zm9.8613 0v24h4.9317V0z"/></svg></div>
+      
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"/></svg></div>
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M17.392 0H13.9L17 4.808 10.444 0H6.949l3.102 6.3L3.494 0H0l3.05 8.131L0 24h3.494L10.05 6.985 6.949 24h3.494L17 5.494 13.899 24h3.493L24 3.672 17.392 0z"/></svg></div>
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 19.2a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4zm0-11.2a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg></div>
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></div>
+      
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.14c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></svg></div>
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg></div>
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M24 22.525H0l12-21.05 12 21.05z"/></svg></div><div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M21.4737 5.6842c-1.1772 0-2.1663.8051-2.4468 1.8947h-2.8955c-1.235 0-2.289.893-2.492 2.111l-.1038.623a1.263 1.263 0 0 1-1.246 1.0555H11.289c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947s-2.1663.8051-2.4467 1.8947H4.973c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947C1.1311 9.4737 0 10.6047 0 12s1.131 2.5263 2.5263 2.5263c1.1772 0 2.1663-.8051 2.4468-1.8947h1.4223c.2804 1.0896 1.2696 1.8947 2.4467 1.8947 1.1772 0 2.1663-.8051 2.4468-1.8947h1.0008a1.263 1.263 0 0 1 1.2459 1.0555l.1038.623c.203 1.218 1.257 2.111 2.492 2.111h.3692c.2804 1.0895 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263c-1.1772 0-2.1664.805-2.4468 1.8947h-.3692a1.263 1.263 0 0 1-1.246-1.0555l-.1037-.623A2.52 2.52 0 0 0 13.9607 12a2.52 2.52 0 0 0 .821-1.4794l.1038-.623a1.263 1.263 0 0 1 1.2459-1.0555h2.8955c.2805 1.0896 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263m0 1.2632a1.263 1.263 0 0 1 1.2631 1.2631 1.263 1.263 0 0 1-1.2631 1.2632 1.263 1.263 0 0 1-1.2632-1.2632 1.263 1.263 0 0 1 1.2632-1.2631M2.5263 10.7368A1.263 1.263 0 0 1 3.7895 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 1.2632 12a1.263 1.263 0 0 1 1.2631-1.2632m6.3158 0A1.263 1.263 0 0 1 10.1053 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 7.579 12a1.263 1.263 0 0 1 1.2632-1.2632m10.1053 3.7895a1.263 1.263 0 0 1 1.2631 1.2632 1.263 1.263 0 0 1-1.2631 1.2631 1.263 1.263 0 0 1-1.2632-1.2631 1.263 1.263 0 0 1 1.2632-1.2632"/></svg></div>
+      <!-- duplicate for seamless loop -->
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M13.38 3.498c-.27 0-.511.19-.566.465L9.85 18.986a.578.578 0 0 0 .453.678l4.095.826a.58.58 0 0 0 .682-.455l2.963-15.021a.578.578 0 0 0-.453-.678l-4.096-.826a.589.589 0 0 0-.113-.012zm-5.876.098a.576.576 0 0 0-.516.318L.062 17.697a.575.575 0 0 0 .256.774l3.733 1.877a.578.578 0 0 0 .775-.258l6.926-13.781a.577.577 0 0 0-.256-.776L7.762 3.658a.571.571 0 0 0-.258-.062zm11.74.115a.576.576 0 0 0-.576.576v15.426c0 .318.258.578.576.578h4.178a.58.58 0 0 0 .578-.578V4.287a.578.578 0 0 0-.578-.576Z"/></svg></div>
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg></div>
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.032.067L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.843-3.371 2.019-1.168a.075.075 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.4-.679zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z"/></svg></div>
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></svg></div>
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M4.6035 0v24h4.9317V0zm9.8613 0v24h4.9317V0z"/></svg></div>
+      
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"/></svg></div>
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M17.392 0H13.9L17 4.808 10.444 0H6.949l3.102 6.3L3.494 0H0l3.05 8.131L0 24h3.494L10.05 6.985 6.949 24h3.494L17 5.494 13.899 24h3.493L24 3.672 17.392 0z"/></svg></div>
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 19.2a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4zm0-11.2a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg></div>
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></div>
+      
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.14c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></svg></div>
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg></div>
+      <div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M24 22.525H0l12-21.05 12 21.05z"/></svg></div><div class="tool-badge"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M21.4737 5.6842c-1.1772 0-2.1663.8051-2.4468 1.8947h-2.8955c-1.235 0-2.289.893-2.492 2.111l-.1038.623a1.263 1.263 0 0 1-1.246 1.0555H11.289c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947s-2.1663.8051-2.4467 1.8947H4.973c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947C1.1311 9.4737 0 10.6047 0 12s1.131 2.5263 2.5263 2.5263c1.1772 0 2.1663-.8051 2.4468-1.8947h1.4223c.2804 1.0896 1.2696 1.8947 2.4467 1.8947 1.1772 0 2.1663-.8051 2.4468-1.8947h1.0008a1.263 1.263 0 0 1 1.2459 1.0555l.1038.623c.203 1.218 1.257 2.111 2.492 2.111h.3692c.2804 1.0895 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263c-1.1772 0-2.1664.805-2.4468 1.8947h-.3692a1.263 1.263 0 0 1-1.246-1.0555l-.1037-.623A2.52 2.52 0 0 0 13.9607 12a2.52 2.52 0 0 0 .821-1.4794l.1038-.623a1.263 1.263 0 0 1 1.2459-1.0555h2.8955c.2805 1.0896 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263m0 1.2632a1.263 1.263 0 0 1 1.2631 1.2631 1.263 1.263 0 0 1-1.2631 1.2632 1.263 1.263 0 0 1-1.2632-1.2632 1.263 1.263 0 0 1 1.2632-1.2631M2.5263 10.7368A1.263 1.263 0 0 1 3.7895 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 1.2632 12a1.263 1.263 0 0 1 1.2631-1.2632m6.3158 0A1.263 1.263 0 0 1 10.1053 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 7.579 12a1.263 1.263 0 0 1 1.2632-1.2632m10.1053 3.7895a1.263 1.263 0 0 1 1.2631 1.2632 1.263 1.263 0 0 1-1.2631 1.2631 1.263 1.263 0 0 1-1.2632-1.2631 1.263 1.263 0 0 1 1.2632-1.2632"/></svg></div>
+    </div>
+  </div>
+  </div>
+</section>
 
 <!-- BEFORE / AFTER -->
 <section id="ba">
@@ -474,27 +582,6 @@ section{position:relative;z-index:1;}
 </div>
 </section>
 
-<!-- STATS -->
-<section id="stats">
-  <div class="stats-row">
-    <div class="stat-item fu d1">
-      <div class="stat-num counter" data-target="24">0</div>
-      <div class="stat-label">ore/zi disponibil</div>
-    </div>
-    <div class="stat-item fu d2">
-      <div class="stat-num counter" data-target="1" data-suffix="s">&lt;1s</div>
-      <div class="stat-label">timp de răspuns</div>
-    </div>
-    <div class="stat-item fu d3">
-      <div class="stat-num counter" data-target="0">0</div>
-      <div class="stat-label">clienți pierduți noaptea</div>
-    </div>
-    <div class="stat-item fu d4">
-      <div class="stat-num counter" data-target="7">0</div>
-      <div class="stat-label">zile până la lansare</div>
-    </div>
-  </div>
-</section>
 
 <!-- BENEFICII -->
 <section id="beneficii">
@@ -539,51 +626,70 @@ section{position:relative;z-index:1;}
 </div>
 </section>
 
-<!-- VLAD -->
-<section id="vlad">
-  <div class="vlad-inner fu">
-    <div class="chip">De ce am construit asta</div>
-    <div class="vlad-quote">
-      Am văzut <strong>cât timp pierd afacerile mici și medii pe mesaje și taskuri repetitive.</strong> Eu însumi veneam dintr-un drum sigur dar plafonat — inginer naval — și am ales să creez soluții AI care să dea timp înapoi oamenilor.
+<!-- PROCES -->
+<section id="proces" style="padding:7rem 5%;background:#080808;">
+  <div class="sc fu" style="margin-bottom:4rem;">
+    <div class="chip">Cum lucrăm</div>
+    <h2 class="st">De la haos la sistem<br/><span class="ol">în câțiva pași simpli.</span></h2>
+    <p class="ss">Tu nu faci nimic tehnic. Noi ne ocupăm de tot.</p>
+  </div>
+  <div style="max-width:860px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;">
+    <div class="b-card fu d1" style="position:relative;">
+      <div style="font-size:2.5rem;font-weight:900;color:var(--o);letter-spacing:-2px;line-height:1;margin-bottom:1rem;opacity:0.85;">01</div>
+      <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">Demo gratuit — 30 de minute</h3>
+      <p style="color:var(--gl);font-size:0.85rem;line-height:1.7;font-weight:300;">Discutăm despre afacerea ta, ce îți mănâncă timp și unde pierzi clienți. Fără tehnic, fără obligații.</p>
     </div>
-    <div class="vlad-name">— Vlad</div>
-    <div class="vlad-role">Fondator Workless Systems</div>
-      
+    <div class="b-card fu d2">
+      <div style="font-size:2.5rem;font-weight:900;color:var(--o);letter-spacing:-2px;line-height:1;margin-bottom:1rem;opacity:0.85;">02</div>
+      <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">Analiză & propunere clară</h3>
+      <p style="color:var(--gl);font-size:0.85rem;line-height:1.7;font-weight:300;">Îți arăt exact ce sistem se potrivește, cum funcționează și ce rezultate poți aștepta. Fără surprize.</p>
+    </div>
+    <div class="b-card fu d3">
+      <div style="font-size:2.5rem;font-weight:900;color:var(--o);letter-spacing:-2px;line-height:1;margin-bottom:1rem;opacity:0.85;">03</div>
+      <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">Implementare completă</h3>
+      <p style="color:var(--gl);font-size:0.85rem;line-height:1.7;font-weight:300;">Construiesc și configurez totul de la zero. Tu nu scrii nicio linie de cod și nu instalezi nimic.</p>
+    </div>
+    <div class="b-card fu d4">
+      <div style="font-size:2.5rem;font-weight:900;color:var(--o);letter-spacing:-2px;line-height:1;margin-bottom:1rem;opacity:0.85;">04</div>
+      <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.5rem;">Live & funcțional din prima zi</h3>
+      <p style="color:var(--gl);font-size:0.85rem;line-height:1.7;font-weight:300;">Sistemul e activ imediat după lansare. Nu crește în timp — lucrează pentru tine din minutul unu.</p>
     </div>
   </div>
 </section>
 
-<!-- VIITOR -->
-<section id="viitor">
-<div style="padding:7rem 5%;">
-  <div class="fu">
-    <div class="chip">Cum arată după</div>
-    <h2 class="viitor-title">Business-ul tău<br/><span class="ol">după ce lucrăm împreună.</span></h2>
-    <p class="viitor-sub">Nu mai înseamnă ore pierdute pe DM-uri și telefoane. Ai un sistem invizibil care lucrează non-stop.</p>
+<!-- TESTIMONIALE -->
+<section id="testimoniale" style="padding:7rem 5%;background:#080808;">
+  <div class="sc fu" style="margin-bottom:4rem;">
+    <div class="chip">Ce spun clienții</div>
+    <h2 class="st">Rezultate <span class="ol">reale.</span></h2>
+    <p class="ss">Nu promisiuni. Experiențe din business-uri ca al tău.</p>
   </div>
-  <div class="viitor-grid">
-    <div class="v-card fu d1">
-      <div class="v-num">01</div>
-      <h4>Te trezești cu vești bune</h4>
-      <p>Programări făcute peste noapte. Leaduri calificate. Mesaje la care s-a răspuns deja.</p>
+  <div class="testi-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1100px;margin:0 auto;">
+    <div class="b-card fu d1" style="display:flex;flex-direction:column;gap:1rem;">
+      <div style="color:var(--o);font-size:1.2rem;letter-spacing:2px;">★★★★★</div>
+      <p style="color:var(--gl);font-size:0.88rem;line-height:1.75;font-weight:300;flex:1;">"Înainte pierdeam clienți pentru că nu răspundeam destul de repede. Acum chatbot-ul preia tot — programări, întrebări, oferte — și eu mă ocup doar de ce contează. În prima lună am câștigat 11 clienți noi fără să ridic un deget."</p>
+      <div style="border-top:1px solid var(--br);padding-top:1rem;">
+        <div style="font-size:0.85rem;font-weight:700;color:var(--white);">Andreea Moldovan</div>
+        <div style="font-size:0.75rem;color:var(--gray);margin-top:0.2rem;">Salon de înfrumusețare · Galați</div>
+      </div>
     </div>
-    <div class="v-card fu d2">
-      <div class="v-num">02</div>
-      <h4>Clienții tăi primesc ce vor imediat</h4>
-      <p>Răspuns instant, oricând. Fără așteptare, fără frustrare, fără clienți pierduți.</p>
+    <div class="b-card fu d2" style="display:flex;flex-direction:column;gap:1rem;">
+      <div style="color:var(--o);font-size:1.2rem;letter-spacing:2px;">★★★★★</div>
+      <p style="color:var(--gl);font-size:0.88rem;line-height:1.75;font-weight:300;flex:1;">"Am crezut că e complicat și că o să dureze luni de zile. Vlad a implementat totul în 2 săptămâni. Acum sistemul filtrează leadurile, trimite oferte automat și îmi dă raport zilnic. E ca și cum am angajat un om în plus, dar fără salar."</p>
+      <div style="border-top:1px solid var(--br);padding-top:1rem;">
+        <div style="font-size:0.85rem;font-weight:700;color:var(--white);">Radu Ionescu</div>
+        <div style="font-size:0.75rem;color:var(--gray);margin-top:0.2rem;">Agenție imobiliară · Galați</div>
+      </div>
     </div>
-    <div class="v-card fu d3">
-      <div class="v-num">03</div>
-      <h4>Tu te ocupi de creștere</h4>
-      <p>Nu de operațional. Energia ta merge spre decizii mari, nu spre mesaje repetitive.</p>
-    </div>
-    <div class="v-card fu d4">
-      <div class="v-num">04</div>
-      <h4>Sistemul crește cu tine</h4>
-      <p>Pe măsură ce business-ul crește, sistemul se adaptează. Nu angajezi mai mult — automatizezi mai mult.</p>
+    <div class="b-card fu d3" style="display:flex;flex-direction:column;gap:1rem;">
+      <div style="color:var(--o);font-size:1.2rem;letter-spacing:2px;">★★★★★</div>
+      <p style="color:var(--gl);font-size:0.88rem;line-height:1.75;font-weight:300;flex:1;">"Recepția noastră era copleșită de apeluri pentru programări. Acum voicebot-ul preia 70% din apeluri, pacienții primesc confirmări automate și nu mai avem no-show-uri. Personalul s-a relaxat vizibil, iar satisfacția pacienților a crescut."</p>
+      <div style="border-top:1px solid var(--br);padding-top:1rem;">
+        <div style="font-size:0.85rem;font-weight:700;color:var(--white);">Dr. Mihai Petrescu</div>
+        <div style="font-size:0.75rem;color:var(--gray);margin-top:0.2rem;">Clinică stomatologică · Tulcea</div>
+      </div>
     </div>
   </div>
-</div>
 </section>
 
 <!-- FAQ -->
@@ -633,15 +739,16 @@ section{position:relative;z-index:1;}
 <!-- FOOTER -->
 <footer>
   <div class="fl-logo">
-    <img src="/images/logo.webp" alt="Logo Workless Systems" height="26" loading="lazy">
+    <img src="images/logo.webp" alt="Logo Workless Systems" height="26" loading="lazy">
     <div class="fl-txt">Workless Systems</div>
   </div>
-  <p class="fc">© 2026 Workless Systems. Toate drepturile rezervate. · <a href="/politica-de-confidentialitate.html" style="color:var(--gray);text-decoration:underline;">Politică de confidenţialitate</a></p>
+  <p class="fc">© 2026 Workless Systems. Toate drepturile rezervate. · <a href="politica-de-confidentialitate.html" style="color:var(--gray);text-decoration:underline;">Politică de confidenţialitate</a></p>
   <div class="fsocial">
     <a href="https://www.instagram.com/workless.systems" target="_blank" class="fsoc" aria-label="Instagram"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
     <a href="https://www.tiktok.com/@workless.systems" target="_blank" class="fsoc" aria-label="TikTok"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.78 1.52V6.78a4.85 4.85 0 01-1.02-.09z"/></svg></a>
     <a href="https://www.youtube.com/@WorklessSystems" target="_blank" class="fsoc" aria-label="YouTube"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
     <a href="https://www.facebook.com/profile.php?id=61580864584012" target="_blank" class="fsoc" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+    <a href="https://wa.me/40773749964" target="_blank" class="fsoc" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
   </div>
 </footer>
 
@@ -717,6 +824,7 @@ function tFaq(el){
   document.querySelectorAll('.fi').forEach(i=>{i.classList.remove('open');i.querySelector('.fa').style.maxHeight='0';});
   if(!op){it.classList.add('open');an.style.maxHeight=an.scrollHeight+'px';}
 }
+document.querySelectorAll('.fi.open').forEach(i=>{const a=i.querySelector('.fa');if(a)a.style.maxHeight=a.scrollHeight+'px';});
 
 // 3D TILT
 document.querySelectorAll('.b-card,.v-card,.ba-card').forEach(c=>{
@@ -730,7 +838,13 @@ document.querySelectorAll('.b-card,.v-card,.ba-card').forEach(c=>{
 });
 
 
-document.querySelectorAll('.glitch').forEach(el=>gObs.observe(el));
+// HAMBURGER MENU
+function toggleMenu(){
+  const h=document.getElementById('hamburger');
+  const n=document.querySelector('.nav-links');
+  h.classList.toggle('active');
+  n.classList.toggle('open');
+}
 
 // MAGNETIC BUTTONS
 document.querySelectorAll('.mag-btn').forEach(btn=>{
@@ -743,170 +857,49 @@ document.querySelectorAll('.mag-btn').forEach(btn=>{
   btn.addEventListener('mouseleave',()=>btn.style.transform='');
 });
 
-
 // CIRCUIT BACKGROUND
 (function(){
-  const canvas = document.getElementById('circuit-bg');
-  if(!canvas) return;
-  const ctx = canvas.getContext('2d');
-  
-  function resize(){
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-  }
+  const canvas=document.getElementById('circuit-bg');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  function resize(){canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight;}
   resize();
-  window.addEventListener('resize', resize);
-
-  const nodes = [];
-  const NODE_COUNT = 18;
-  const COLOR = 'rgba(242,101,34,';
-
-  // Create nodes
-  for(let i = 0; i < NODE_COUNT; i++){
-    nodes.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
-      pulse: Math.random() * Math.PI * 2,
-      r: Math.random() * 2 + 2,
-      connections: []
-    });
-  }
-
-  // Circuit paths - animated line drawing
-  const paths = [];
-  for(let i = 0; i < 8; i++){
-    paths.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      length: 0,
-      maxLength: 80 + Math.random() * 120,
-      direction: Math.floor(Math.random() * 4), // 0=right, 1=down, 2=left, 3=up
-      speed: 0.8 + Math.random() * 0.8,
-      alpha: 0,
-      segments: [],
-      building: true,
-      wait: Math.random() * 200,
-      waitCount: 0
-    });
-  }
-
-  function getDir(d){ 
-    const dirs = [[1,0],[0,1],[-1,0],[0,-1]];
-    return dirs[d];
-  }
-
+  window.addEventListener('resize',resize);
+  const nodes=[];const NODE_COUNT=18;const COLOR='rgba(242,101,34,';
+  for(let i=0;i<NODE_COUNT;i++){nodes.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-0.5)*0.4,vy:(Math.random()-0.5)*0.4,pulse:Math.random()*Math.PI*2,r:Math.random()*2+2,connections:[]});}
+  const paths=[];
+  for(let i=0;i<8;i++){paths.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,length:0,maxLength:80+Math.random()*120,direction:Math.floor(Math.random()*4),speed:0.8+Math.random()*0.8,alpha:0,segments:[],building:true,wait:Math.random()*200,waitCount:0});}
+  function getDir(d){const dirs=[[1,0],[0,1],[-1,0],[0,-1]];return dirs[d];}
   function drawCircuit(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Draw animated paths
-    paths.forEach(p => {
-      if(p.waitCount < p.wait){ p.waitCount++; return; }
-      
-      if(p.building && p.length < p.maxLength){
-        p.length += p.speed;
-        p.alpha = Math.min(1, p.alpha + 0.02);
-      } else if(p.length >= p.maxLength){
-        p.building = false;
-        p.alpha -= 0.005;
-        if(p.alpha <= 0){
-          // Reset path
-          p.x = Math.random() * canvas.width;
-          p.y = Math.random() * canvas.height;
-          p.length = 0;
-          p.maxLength = 80 + Math.random() * 120;
-          p.direction = Math.floor(Math.random() * 4);
-          p.speed = 0.8 + Math.random() * 0.8;
-          p.alpha = 0;
-          p.segments = [];
-          p.building = true;
-          p.wait = Math.random() * 100;
-          p.waitCount = 0;
-        }
-      }
-
-      if(p.alpha <= 0) return;
-
-      // Draw L-shaped circuit line
-      const [dx, dy] = getDir(p.direction);
-      const halfLen = p.length / 2;
-      const x1 = p.x;
-      const y1 = p.y;
-      const turnX = x1 + dx * halfLen;
-      const turnY = y1 + dy * halfLen;
-      // Turn 90 degrees
-      const [dx2, dy2] = getDir((p.direction + 1) % 4);
-      const x2 = turnX + dx2 * halfLen;
-      const y2 = turnY + dy2 * halfLen;
-
-      ctx.beginPath();
-      ctx.moveTo(x1, y1);
-      ctx.lineTo(turnX, turnY);
-      ctx.lineTo(x2, y2);
-      ctx.strokeStyle = COLOR + (p.alpha * 0.6) + ')';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-
-      // Draw node dot at start
-      ctx.beginPath();
-      ctx.arc(x1, y1, 2.5, 0, Math.PI * 2);
-      ctx.fillStyle = COLOR + (p.alpha * 0.9) + ')';
-      ctx.fill();
-
-      // Draw node dot at turn
-      ctx.beginPath();
-      ctx.arc(turnX, turnY, 2, 0, Math.PI * 2);
-      ctx.fillStyle = COLOR + (p.alpha * 0.7) + ')';
-      ctx.fill();
-
-      // Glowing dot at tip
-      ctx.beginPath();
-      ctx.arc(x2, y2, 3, 0, Math.PI * 2);
-      ctx.fillStyle = COLOR + (p.alpha) + ')';
-      ctx.fill();
-      ctx.beginPath();
-      ctx.arc(x2, y2, 6, 0, Math.PI * 2);
-      ctx.fillStyle = COLOR + (p.alpha * 0.15) + ')';
-      ctx.fill();
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    paths.forEach(p=>{
+      if(p.waitCount<p.wait){p.waitCount++;return;}
+      if(p.building&&p.length<p.maxLength){p.length+=p.speed;p.alpha=Math.min(1,p.alpha+0.02);}
+      else if(p.length>=p.maxLength){p.building=false;p.alpha-=0.005;
+        if(p.alpha<=0){p.x=Math.random()*canvas.width;p.y=Math.random()*canvas.height;p.length=0;p.maxLength=80+Math.random()*120;p.direction=Math.floor(Math.random()*4);p.speed=0.8+Math.random()*0.8;p.alpha=0;p.segments=[];p.building=true;p.wait=Math.random()*100;p.waitCount=0;}}
+      if(p.alpha<=0)return;
+      const[dx,dy]=getDir(p.direction);const halfLen=p.length/2;
+      const x1=p.x,y1=p.y,turnX=x1+dx*halfLen,turnY=y1+dy*halfLen;
+      const[dx2,dy2]=getDir((p.direction+1)%4);const x2=turnX+dx2*halfLen,y2=turnY+dy2*halfLen;
+      ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(turnX,turnY);ctx.lineTo(x2,y2);
+      ctx.strokeStyle=COLOR+(p.alpha*0.6)+')';ctx.lineWidth=1;ctx.stroke();
+      ctx.beginPath();ctx.arc(x1,y1,2.5,0,Math.PI*2);ctx.fillStyle=COLOR+(p.alpha*0.9)+')';ctx.fill();
+      ctx.beginPath();ctx.arc(turnX,turnY,2,0,Math.PI*2);ctx.fillStyle=COLOR+(p.alpha*0.7)+')';ctx.fill();
+      ctx.beginPath();ctx.arc(x2,y2,3,0,Math.PI*2);ctx.fillStyle=COLOR+(p.alpha)+')';ctx.fill();
+      ctx.beginPath();ctx.arc(x2,y2,6,0,Math.PI*2);ctx.fillStyle=COLOR+(p.alpha*0.15)+')';ctx.fill();
     });
-
-    // Draw floating nodes
-    nodes.forEach((n, i) => {
-      n.pulse += 0.03;
-      n.x += n.vx;
-      n.y += n.vy;
-      if(n.x < 0 || n.x > canvas.width) n.vx *= -1;
-      if(n.y < 0 || n.y > canvas.height) n.vy *= -1;
-      
-      const pulse = 0.4 + 0.3 * Math.sin(n.pulse);
-      
-      // Connect nearby nodes with straight lines
-      for(let j = i + 1; j < nodes.length; j++){
-        const n2 = nodes[j];
-        const d = Math.hypot(n.x - n2.x, n.y - n2.y);
-        if(d < 140){
-          ctx.beginPath();
-          ctx.moveTo(n.x, n.y);
-          ctx.lineTo(n2.x, n2.y);
-          ctx.strokeStyle = COLOR + (0.12 * (1 - d/140)) + ')';
-          ctx.lineWidth = 0.5;
-          ctx.stroke();
-        }
-      }
-
-      // Node dot
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, n.r * pulse, 0, Math.PI * 2);
-      ctx.fillStyle = COLOR + (pulse * 0.5) + ')';
-      ctx.fill();
+    nodes.forEach((n,i)=>{
+      n.pulse+=0.03;n.x+=n.vx;n.y+=n.vy;
+      if(n.x<0||n.x>canvas.width)n.vx*=-1;if(n.y<0||n.y>canvas.height)n.vy*=-1;
+      const pulse=0.4+0.3*Math.sin(n.pulse);
+      for(let j=i+1;j<nodes.length;j++){const n2=nodes[j];const d=Math.hypot(n.x-n2.x,n.y-n2.y);
+        if(d<140){ctx.beginPath();ctx.moveTo(n.x,n.y);ctx.lineTo(n2.x,n2.y);ctx.strokeStyle=COLOR+(0.12*(1-d/140))+')';ctx.lineWidth=0.5;ctx.stroke();}}
+      ctx.beginPath();ctx.arc(n.x,n.y,n.r*pulse,0,Math.PI*2);ctx.fillStyle=COLOR+(pulse*0.5)+')';ctx.fill();
     });
-
     requestAnimationFrame(drawCircuit);
   }
   drawCircuit();
 })();
-
 
 </script>
 </body>

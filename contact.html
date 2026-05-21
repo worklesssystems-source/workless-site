@@ -19,7 +19,7 @@
 <meta property="og:title" content="Demo Gratuit — Rezervă 30 de Minute cu Vlad | Workless Systems"/>
 <meta property="og:description" content="Completează formularul și rezervă-ți cele 30 de minute. Îți arăt exact cum ar arăta sistemul în business-ul tău. Gratuit. Fără obligații."/>
 <meta property="og:url" content="https://workless.ro/contact.html"/>
-<meta property="og:image" content="https://workless.ro/og-image.jpg"/>
+<meta property="og:image" content="https://workless.ro/og-image.webp"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
 <meta property="og:image:alt" content="Workless Systems — Demo Gratuit Automatizări AI"/>
@@ -33,13 +33,14 @@
 <meta name="twitter:image:alt" content="Workless Systems — Demo Gratuit"/>
 
 <!-- ── Favicon ── -->
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png"/>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
 
 <!-- ── Fonts (preconnect first, then load) ── -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 
 <!-- ── Structured Data (JSON-LD) ── -->
@@ -96,6 +97,7 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 :root{--o:#F26522;--od:#D4561A;--og:rgba(242,101,34,0.12);--black:#000;--d1:#0A0A0A;--d2:#111;--d3:#1A1A1A;--white:#FFF;--gray:#555;--gl:#999;--br:rgba(255,255,255,0.06);}
 html{scroll-behavior:smooth;}
+:focus-visible{outline:2px solid var(--o);outline-offset:3px;border-radius:4px;}
 body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);min-height:100vh;-webkit-font-smoothing:antialiased;cursor:none;}
 .cursor{position:fixed;width:10px;height:10px;background:var(--o);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform 0.1s,width 0.3s,height 0.3s;mix-blend-mode:difference;}
 .cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid rgba(242,101,34,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform 0.12s ease,width 0.3s,height 0.3s;}
@@ -145,15 +147,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .field-error.show{display:block;}
 .form-group input.invalid,.form-group select.invalid,.form-group textarea.invalid{border-color:#ff5555;box-shadow:0 0 0 3px rgba(255,85,85,0.1);}
 
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.92);backdrop-filter:blur(12px);z-index:200;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s;padding:1rem;}
-.modal-overlay.active{opacity:1;pointer-events:all;}
-.modal-box{background:var(--d2);border:1px solid rgba(242,101,34,0.35);border-radius:20px;padding:3rem;max-width:460px;width:100%;text-align:center;transform:translateY(30px) scale(0.95);transition:all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);position:relative;}
-.modal-overlay.active .modal-box{transform:translateY(0) scale(1);}
-.modal-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:var(--gray);font-size:1.5rem;cursor:none;transition:color 0.2s;line-height:1;}
-.modal-close:hover{color:var(--white);}
-.modal-emoji{font-size:3.5rem;margin-bottom:1rem;display:block;}
-.modal-box h3{font-size:1.5rem;font-weight:900;letter-spacing:-0.5px;margin-bottom:0.7rem;}
-.modal-box p{color:var(--gl);font-size:0.9rem;line-height:1.7;margin-bottom:1.8rem;}
 .cal-btn{display:inline-flex;align-items:center;gap:0.5rem;background:var(--o);color:var(--white);padding:1rem 2rem;border-radius:8px;text-decoration:none;font-size:0.92rem;font-weight:700;transition:all 0.3s;cursor:none;}
 .cal-btn:hover{background:var(--od);transform:translateY(-2px);box-shadow:0 8px 25px rgba(242,101,34,0.4);}
 
@@ -171,7 +164,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 
 <!-- Cookie Consent + GA4 -->
 <style>#wl-cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9000;background:#111;border-top:1px solid rgba(255,255,255,0.08);padding:1rem 5%;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-family:'Inter',sans-serif;}#wl-cookie-banner p{color:#999;font-size:0.78rem;margin:0;line-height:1.6;}#wl-cookie-banner a{color:#F26522;text-decoration:underline;}.wl-cookie-btns{display:flex;gap:0.6rem;flex-shrink:0;}.wl-cookie-btns button{padding:0.5rem 1.2rem;border-radius:6px;font-size:0.78rem;font-weight:600;cursor:pointer;border:none;font-family:'Inter',sans-serif;}#wl-accept-btn{background:#F26522;color:#fff;}#wl-accept-btn:hover{background:#D4561A;}#wl-reject-btn{background:transparent;color:#999;border:1px solid rgba(255,255,255,0.12);}@media(max-width:600px){#wl-cookie-banner{flex-direction:column;text-align:center;}.wl-cookie-btns{width:100%;justify-content:center;}}</style>
-<div id="wl-cookie-banner" style="display:none;"><p>Folosim cookies pentru Google Analytics. Detalii în <a href="/politica-de-confidentialitate.html">Politică de confidenţialitate</a>.</p><div class="wl-cookie-btns"><button id="wl-accept-btn" onclick="window.__wl_acceptCookies()">Acceptă</button><button id="wl-reject-btn" onclick="window.__wl_rejectCookies()">Refuză</button></div></div>
+<div id="wl-cookie-banner" style="display:none;"><p>Folosim cookies pentru Google Analytics. Detalii în <a href="politica-de-confidentialitate.html">Politică de confidenţialitate</a>.</p><div class="wl-cookie-btns"><button id="wl-accept-btn" onclick="window.__wl_acceptCookies()">Acceptă</button><button id="wl-reject-btn" onclick="window.__wl_rejectCookies()">Refuză</button></div></div>
 <script>(function(){
   var K='wl_cookie_consent';
   var GID='G-7G31JFYMFK';
@@ -202,6 +195,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
   });
 })();</script>
 
+<!-- Meta Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1856492415027756');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1856492415027756&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel -->
+
 </head>
 
 <body>
@@ -211,7 +209,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="/images/logo.webp" alt="Logo Workless Systems" height="34" loading="eager" alt="W"/>
+    <img src="images/logo.webp" alt="Logo Workless Systems" height="34" loading="eager" alt="W"/>
     <div class="logo-txt">WORKLESS <span>SYSTEMS</span></div>
   </a>
   <a href="index.html" class="back-btn">← Înapoi</a>
@@ -227,68 +225,31 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
         <div class="trust-item"><div class="trust-dot"></div>Gratuit. Fără obligații.</div>
         <div class="trust-item"><div class="trust-dot"></div>30 de minute, nu mai mult.</div>
         <div class="trust-item"><div class="trust-dot"></div>Fără pitch agresiv.</div>
-        <div class="trust-item"><div class="trust-dot"></div>Sistem live în 7 zile de la decizie.</div>
+        <div class="trust-item"><div class="trust-dot"></div>Sistem live în câteva zile de la decizie.</div>
       </div>
     </div>
     <div class="form-card fu d1">
-      <div class="form-row">
-        <div class="form-group">
-          <label>Numele tău <span>*</span></label>
-          <input type="text" id="f-nume" placeholder="Ion Popescu"/>
-          <span class="field-error" id="err-nume">Te rugăm să introduci numele tău.</span>
-        </div>
-        <div class="form-group">
-          <label>Email <span>*</span></label>
-          <input type="email" id="f-email" placeholder="ion@afacere.ro"/>
-          <span class="field-error" id="err-email">Te rugăm să introduci o adresă de email validă.</span>
-        </div>
+      <div class="form-group">
+        <label>Numele tău <span>*</span></label>
+        <input type="text" id="f-nume" placeholder="Ion Popescu"/>
+        <span class="field-error" id="err-nume">Te rugăm să introduci numele tău.</span>
       </div>
       <div class="form-group">
-        <label>Tipul afacerii</label>
+        <label>Email <span>*</span></label>
+        <input type="email" id="f-email" placeholder="ion@afacere.ro"/>
+        <span class="field-error" id="err-email">Te rugăm să introduci o adresă de email validă.</span>
+      </div>
+      <div class="form-group">
+        <label>Tipul afacerii <span>*</span></label>
         <input type="text" id="f-afacere" placeholder="Ex: restaurant, magazin online, salon..."/>
+        <span class="field-error" id="err-afacere">Te rugăm să introduci tipul afacerii.</span>
       </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Venit lunar actual</label>
-          <select id="f-actual">
-            <option value="">Alege</option>
-            <option>Sub 5.000 lei</option>
-            <option>5.000 – 15.000 lei</option>
-            <option>15.000 – 50.000 lei</option>
-            <option>50.000 – 150.000 lei</option>
-            <option>Peste 150.000 lei</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Obiectiv în 6 luni</label>
-          <select id="f-goal">
-            <option value="">Alege</option>
-            <option>15.000 – 30.000 lei</option>
-            <option>30.000 – 75.000 lei</option>
-            <option>75.000 – 200.000 lei</option>
-            <option>Peste 200.000 lei</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Cea mai mare problemă acum</label>
-        <textarea id="f-provocare" placeholder="Descrie pe scurt cu ce te lupți zilnic în business..."></textarea>
-      </div>
-      <button class="form-submit" onclick="submitForm()">Continuă pentru DEMO →</button>
+      <button class="form-submit" id="submit-btn" onclick="submitForm()">Rezervă demo gratuit →</button>
       <p class="form-note">🔒 Datele tale sunt confidențiale.</p>
     </div>
   </div>
 </div>
 
-<div class="modal-overlay" id="modal">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()">×</button>
-    <span class="modal-emoji">🎉</span>
-    <h3>Aproape gata!</h3>
-    <p>Am primit informațiile tale. Acum rezervă-ți slotul pentru sesiunea gratuită de <strong>30 de minute</strong>.</p>
-    <a href="https://calendly.com/workless-systems/15min" target="_blank" class="cal-btn">Rezervă pe Calendly →</a>
-  </div>
-</div>
 
 <script>
 const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
@@ -338,11 +299,42 @@ function submitForm(){
     document.getElementById('err-email').classList.remove('show');
   }
 
+  const afacereEl=document.getElementById('f-afacere');
+  const af=afacereEl.value.trim();
+  if(!af){
+    afacereEl.classList.add('invalid');
+    document.getElementById('err-afacere').classList.add('show');
+    valid=false;
+  } else {
+    afacereEl.classList.remove('invalid');
+    document.getElementById('err-afacere').classList.remove('show');
+  }
+
   if(!valid) return;
-  document.getElementById('modal').classList.add('active');
+
+  const btn=document.getElementById('submit-btn');
+  btn.disabled=true;
+  btn.textContent='Se trimite...';
+
+  const fd=new FormData();
+  fd.append('name',n);
+  fd.append('email',e);
+  fd.append('afacere',af);
+
+  fetch('https://formspree.io/f/xzdwenjg',{method:'POST',body:fd,headers:{Accept:'application/json'}})
+    .then(r=>{
+      if(r.ok){
+        if(typeof gtag==='function'){
+          gtag('event','generate_lead',{event_category:'form',event_label:'contact_demo'});
+        }
+        window.location.href='multumire.html';
+      } else {
+        alert('Ceva nu a mers. Încearcă din nou sau scrie-ne direct.');
+      }
+    })
+    .catch(()=>alert('Eroare de conexiune. Verifică internetul și încearcă din nou.'))
+    .finally(()=>{btn.disabled=false;btn.textContent='Trimite cererea →';});
 }
-function closeModal(){document.getElementById('modal').classList.remove('active');}
-document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
 </script>
 </body>
 </html>
